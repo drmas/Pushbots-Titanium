@@ -30,6 +30,22 @@ Function to set tag.
 
 ## Usage
 
+- First you need to register to [Pushbots Website](http://pushbots.com)
+- Next you need to add your Google Messaging and Pushbots ids in Android resources 'platform/android/res/values/pushbots.xml' 
+```
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Pushbots Application ID  -->
+    <string name="pb_appid">[PushbotsAPPID]</string>
+    <!-- GCM Sender ID -->
+    <string name="pb_senderid">[GCMID]</string>
+    
+    <!-- Pushbots Log Level  log Tag “PB2” -->
+    <string name="pb_logLevel">DEBUG</string>
+</resources>
+```
+- After that you can use it in your titanium code
+
 ```
 var pushbots = require('com.pushbots.android');
 

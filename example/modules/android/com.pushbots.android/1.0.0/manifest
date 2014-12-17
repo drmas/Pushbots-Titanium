@@ -1,0 +1,17 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+description: pushbots
+author: Your Name
+license: Specify your license
+copyright: Copyright (c) 2014 by Your Company
+
+# these should not be edited
+name: pushbots
+moduleid: com.pushbots.android
+guid: e7d22790-5eb3-4b6d-9704-2ef867f33732
+platform: android
+minsdk: 3.4.1.GA

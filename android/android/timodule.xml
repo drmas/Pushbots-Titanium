@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:module xmlns:ti="http://ti.appcelerator.org" xmlns:android="http://schemas.android.com/apk/res/android">
+	<!--
+	Similar to tiapp.xml, but contains module/platform specific
+	configuration in <iphone>, <android>, and <mobileweb> sections
+	-->
+	<iphone></iphone>
+	<android xmlns:android="http://schemas.android.com/apk/res/android">
+		<manifest>
+			<permission android:name="com.pushbots.android.permission.C2D_MESSAGE"
+			android:protectionLevel="signature" />
+			<uses-permission android:name="com.pushbots.android.permission.C2D_MESSAGE" />
+			<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+			<uses-permission android:name="android.permission.WAKE_LOCK" />
+			<uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+			<!-- This app has permission to register and receive dataf message. -->
+			<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+			<application
+			>
+				<activity
+				android:name=".MainActivity"
+				android:label="@string/app_name" >
+					<intent-filter>
+						<action android:name="com.pushbots.android.MESSAGE" />
+						<category android:name="android.intent.category.DEFAULT" />
+					</intent-filter>
+				</activity>
+				<activity android:name="com.pushbots.push.PBListener" />
+				<receiver
+				android:name="com.pushbots.google.gcm.GCMBroadcastReceiver"
+				android:permission="com.google.android.c2dm.permission.SEND" >
+					<intent-filter>
+						<!-- Receives the actual messages. -->
+						<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+						<!-- Receives the registration id. -->
+						<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+						<category android:name="com.pushbots.android" />
+					</intent-filter>
+				</receiver>
+				<receiver android:name="com.pushbots.push.DefaultPushHandler" />
+				<service android:name="com.pushbots.push.GCMIntentService" />
+				<service android:name="org.openudid.OpenUDID_service" android:exported="false">
+					<intent-filter>
+						<action android:name="org.openudid.GETUDID" />
+					</intent-filter>
+				</service>
+
+			</application>
+		</manifest>
+	</android>
+	<mobileweb></mobileweb>
+</ti:module>

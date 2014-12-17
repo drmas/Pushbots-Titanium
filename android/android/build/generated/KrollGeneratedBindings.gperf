@@ -1,0 +1,18 @@
+%define lookup-function-name lookupGeneratedInit
+%define class-name PushbotsBindings
+%{
+
+#include <string.h>
+#include <v8.h>
+#include <KrollBindings.h>
+
+#include "com.pushbots.android.PushbotsModule.h"
+#include "com.pushbots.android.ExampleProxy.h"
+
+
+%}
+struct titanium::bindings::BindEntry;
+%%
+com.pushbots.android.PushbotsModule, ::com::pushbots::android::PushbotsModule::bindProxy, ::com::pushbots::android::PushbotsModule::dispose
+com.pushbots.android.ExampleProxy, ::com::pushbots::android::pushbots::ExampleProxy::bindProxy, ::com::pushbots::android::pushbots::ExampleProxy::dispose
+%%

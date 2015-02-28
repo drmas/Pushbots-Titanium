@@ -7,12 +7,15 @@
 	<iphone></iphone>
 	<android xmlns:android="http://schemas.android.com/apk/res/android">
 		<manifest>
-			<permission android:name="com.pushbots.android.permission.C2D_MESSAGE"
-			android:protectionLevel="signature" />
-			<uses-permission android:name="com.pushbots.android.permission.C2D_MESSAGE" />
+			<!-- GCM connects to Google Services. -->
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+			<!-- GCM requires a Google account. -->
 			<uses-permission android:name="android.permission.GET_ACCOUNTS" />
 			<uses-permission android:name="android.permission.WAKE_LOCK" />
 			<uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+			<permission android:name="com.example.sampleapp.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+			<uses-permission android:name="com.example.sampleapp.permission.C2D_MESSAGE" />
 			<!-- This app has permission to register and receive dataf message. -->
 			<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 			<application
@@ -25,24 +28,24 @@
 						<category android:name="android.intent.category.DEFAULT" />
 					</intent-filter>
 				</activity>
-				<activity android:name="com.pushbots.push.PBListener" />
+				
 				<receiver
-				android:name="com.pushbots.google.gcm.GCMBroadcastReceiver"
-				android:permission="com.google.android.c2dm.permission.SEND" >
-					<intent-filter>
-						<!-- Receives the actual messages. -->
-						<action android:name="com.google.android.c2dm.intent.RECEIVE" />
-						<!-- Receives the registration id. -->
-						<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-						<category android:name="com.pushbots.android" />
-					</intent-filter>
+					android:name="com.pushbots.google.gcm.GCMBroadcastReceiver"
+					android:permission="com.google.android.c2dm.permission.SEND" >
+				    <intent-filter>
+				        <!-- Receives the actual messages. -->
+				        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+				        <!-- Receives the registration id. -->
+				        <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+				        <category android:name="com.example.sampleapp" />
+				    </intent-filter>
 				</receiver>
 				<receiver android:name="com.pushbots.push.DefaultPushHandler" />
 				<service android:name="com.pushbots.push.GCMIntentService" />
-				<service android:name="org.openudid.OpenUDID_service" android:exported="false">
-					<intent-filter>
-						<action android:name="org.openudid.GETUDID" />
-					</intent-filter>
+				        <service android:name="org.openudid.OpenUDID_service" android:exported="false">
+				    <intent-filter>
+				        <action android:name="org.openudid.GETUDID" />
+				    </intent-filter>
 				</service>
 
 			</application>

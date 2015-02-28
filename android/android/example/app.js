@@ -12,28 +12,19 @@ var label = Ti.UI.createLabel();
 win.add(label);
 win.open();
 
-// TODO: write your module tests here
 var pushbots = require('com.pushbots.android');
 Ti.API.info("module is => " + pushbots);
 
-label.text = pushbots.example();
+// to enable Pushbots notifications
+pushbots.enabled = true;
 
-Ti.API.info("module exampleProp is => " + pushbots.exampleProp);
-pushbots.exampleProp = "This is a test value";
+// to disable Pushbots notifications
+//pushbots.enabled = false;
 
-if (Ti.Platform.name == "android") {
-	var proxy = pushbots.createExample({
-		message: "Creating an example Proxy",
-		backgroundColor: "red",
-		width: 100,
-		height: 100,
-		top: 100,
-		left: 150
-	});
+// to change Pushbots alias
+//pushbots.alias = "myNewAlias";
 
-	proxy.printMessage("Hello world!");
-	proxy.message = "Hi world!.  It's me again.";
-	proxy.printMessage("Hello world!");
-	win.add(proxy);
-}
+// to set tags
+//pushbots.tag('my tag', 'myAlias');
 
+label.text = "Pushbot enabled = " + pushbots.enabled;

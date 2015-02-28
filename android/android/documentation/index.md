@@ -14,26 +14,54 @@ The pushbots variable is a reference to the Module object.
 
 ## Reference
 
-TODO: If your module has an API, you should document
-the reference here.
+This is a wrapper for Pushbots Android module
 
-### pushbots.function
+### pushbots.enabled
 
-TODO: This is an example of a module function.
+Enable or disable push notification
 
-### pushbots.property
+### pushbots.alias
 
-TODO: This is an example of a module property.
+Write only property to set Pushbots alias
+
+### pushbots.tag(tag, alias)
+
+Function to set tag.
 
 ## Usage
 
-TODO: Enter your usage example here
+```
+var pushbots = require('com.pushbots.android');
+
+// to enable Pushbots notifications
+pushbots.enabled = true;
+
+```
 
 ## Author
 
-TODO: Enter your author name, email and other contact
-details you want to share here.
+Mohamed Shaban
 
 ## License
 
-TODO: Enter your license/legal information here.
+The MIT License (MIT)
+
+Copyright (c) <year> <copyright holders>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
